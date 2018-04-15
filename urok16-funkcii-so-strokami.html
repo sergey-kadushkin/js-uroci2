@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №15. Правильное использование пользовательских функций</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<header>
+		<h2>Урок №15. Правильное использование пользовательских функций</h2>
+	</header><br>
+
+
+	<button onclick="func1()">Задание № 1</button>
+	<button onclick="func2()">Задание № 2</button>
+	<button onclick="func3()">Задание № 3</button>
+	<button onclick="func4()">Задание № 4(in console)</button>
+	<button onclick="func5()">Задание № 5</button>
+	<button onclick="func6()">Задание № 6</button>
+	<button onclick="func7()">Задание № 7</button>
+
+
+	<script type="text/javascript">
+		
+		function func1() {
+			var str =prompt('Введите строку');
+			var newArr = [];
+
+			var arr = str.split(' ');
+			for (var i = 0; i < arr.length; i++) {
+				newArr.push(ucfirst(arr[i]));
+			}
+
+			var newStr = newArr.join(' ');
+			alert(newStr);
+
+			function ucfirst(str) {
+				return str[0].toUpperCase() + str.substr(1);
+			}
+
+		}
+
+		function func2() {
+			var arr = [1, 2, 3, -1, -2, -3, 10, -4546, 12, 4, 5, 6, 12, 3];
+			function isNumberInRange(n) {
+				if (n > 0 && n < 10) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			var newArr = [];
+			for (var i = 0; i <= arr.length; i++) {
+				if (isNumberInRange(arr[i])) {
+					newArr.push(arr[i]);
+				}
+			}
+
+			alert(arr + '\n' + newArr)
+		}
+
+		function func3() {
+			var num = prompt('n = ');
+			function getDigitsSum(n) {
+				var sum = 0;
+				for (var i = 0; i < n.length; i++) {
+					sum += Number(n[i]);
+				}
+				return(sum);
+			}
+
+			alert(getDigitsSum(num));
+		}
+		
+		function func4() {
+			function getDigitsSum(n) {
+				var n = String(n);
+				var sum = 0;
+				for (var i = 0; i < n.length; i++) {
+					sum += Number(n[i]);
+				}
+				return(sum);
+			}
+			for (var i = 1; i < 2017; i++) {
+				if (getDigitsSum(i) == 13) {
+					console.log(i);
+				}
+			}
+		}
+
+		function func5() {
+			var num = Number(prompt('n = '));
+
+			function isIven(n) {
+				if (n%2==0) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			if (isIven(num)) {
+				alert('Четное');
+			} else {
+				alert('нечетное');
+			}
+		}
+
+		function func6() {
+			var arr = [[1, 2, 3], [4, 5], [6]];
+			var sum = 0;
+			for (var i = 0; i < arr.length; i++) {
+				for (var j = 0; j < arr[i].length; j++) {
+					sum += arr[i][j];
+				}
+			}
+			alert('arr = ' + arr + '\n' + 'sum = ' + sum);
+		}
+
+		function func7() {
+			var str = '';
+			for (var i = 0; i <= 10; i++) {
+				str += 'xx';
+				document.write(str + '<br>');
+			}
+
+		}
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 50%;
+			margin: 5px auto;
+		}
+	</style>
+</body>
+</html>

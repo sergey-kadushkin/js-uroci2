@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №25. Работа с метриками на JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №25. Работа с метриками на JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<div id="elem1"></div>
+		<input type="button" value="Click" onclick="func1()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<div id="elem2"></div>
+		<input type="button" value="Click" onclick="func2()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<div id="elem3"></div>
+		<input type="button" value="Click" onclick="func3()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<div id="elem4"></div>
+		<input type="button" value="Click" onclick="func4()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<div id="elem5"></div>
+		<input type="button" value="Click" onclick="func5()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<div id="elem6"></div>
+		<input type="button" value="Click" onclick="func6()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7</h3>
+		<div id="elem7"></div>
+		<input type="button" value="Click" onclick="func7()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8</h3>
+		<div id="elem8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel consequuntur fuga ad laborum
+		 pariatur, suscipit aspernatur atque magnam sint hic. Cumque sint laborum cum ex, maiores inventore esse 
+			odio veniam.</div>
+		<input type="button" value="Click" onclick="func8()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 9</h3>
+		<div id="elem9">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia doloremque ex laborum pr
+		ovident ratione dicta quisquam delectus soluta fuga iste perspiciatis odit asperiores, porro deserunt, si
+		nt commodi necessitatibus unde suscipit.</div>
+		<input type="button" value="Click" onclick="func9()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 10</h3>
+		<div id="elem10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis dolor optio reprehender
+		it eligendi sed perferendis quis placeat, necessitatibus expedita nam eum labore culpa delectus, minima v
+		oluptates praesentium iste esse corporis!</div>
+		<input type="button" value="Click" onclick="func10()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11</h3>
+		<div id="elem11">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, maiores alias soluta? Dis
+		tinctio, corporis libero a optio iusto accusantium ex eveniet consequuntur, voluptas atque quisquam neque
+			 similique, tempore? Repudiandae, consequuntur.</div>
+		<input type="button" value="Click" onclick="func11()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+		<div id="elem12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+			Aut deserunt quisquam, magnam enim hic? Blanditiis fugit commodi ipsum rem officiis,
+		 	iusto at hic vero quisquam, quidem deleniti minus incidunt expedita.</div>
+		<input type="button" value="Click" onclick="func12()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 13</h3>
+		<div id="elem13">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+			Fuga commodi porro autem inventore illo repellendus nostrum, consequuntur excepturi 
+			deleniti modi, eveniet perferendis error amet doloremque non dolor similique, expedita, maiores.</div>
+		<input type="button" value="Click" onclick="func13()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 14</h3>
+		<div id="elem14">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+			Aliquid vero sit ea expedita, similique eos facilis quod unde dolor blanditiis disti
+			nctio consequatur, incidunt, nihil rerum. Mollitia eos ipsam dignissimos necessitatibus.</div>
+		<input type="button" value="Click" onclick="func14()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 15</h3>
+		<div id="elem15"></div>
+		<input type="button" value="Click" onclick="func15()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 16</h3>
+		<div id="elem16"></div>
+		<input type="button" value="Click" onclick="func16()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 17</h3>
+		<div id="elem17"></div>
+		<input type="button" value="Click" onclick="func17()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 18</h3>
+		<div id="elem18"></div>
+		<input type="button" value="Click" onclick="func18()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 19</h3>
+		<input type="button" value="Click" onclick="func19()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 20</h3>
+		<input type="button" value="Click" onclick="func20()">
+	</div>
+
+
+
+	<script type="text/javascript">
+			
+		//Zadanie 1
+
+			function func1() {
+				var elem = document.getElementById('elem1');
+				alert('cT: '+elem.clientTop)
+			}
+
+		//Zadanie 2
+
+			function func2() {
+				var elem = document.getElementById('elem2');
+				alert('cL: '+elem.clientLeft)
+			}
+
+		//Zadanie 3
+
+			function func3() {
+				var elem = document.getElementById('elem3');
+				alert('oW: '+elem.offsetWidth)
+			}
+
+		//Zadanie 4
+
+			function func4() {
+				var elem = document.getElementById('elem4');
+				alert('oH: '+elem.offsetHeight)
+			}
+
+		//Zadanie 5
+
+			function func5() {
+				var elem = document.getElementById('elem5');
+				alert('cW: '+elem.clientWidth);
+			}
+
+		//Zadanie 6
+
+			function func6() {
+				var elem = document.getElementById('elem6');
+				alert('cH: '+elem.clientHeight)
+			}
+
+		//Zadanie 7
+
+			function func7() {
+				var elem = document.getElementById('elem7');
+				alert(getComputedStyle(elem).width + ' ' + getComputedStyle(elem).height);
+			}
+
+		//Zadanie 8
+
+			function func8() {
+				var elem = document.getElementById('elem8');
+				alert(elem.scrollTop);
+			}
+
+		//Zadanie 9
+
+			function func9() {
+				var elem = document.getElementById('elem9');
+				alert(elem.scrollLeft);
+			}
+
+		//Zadanie 10
+
+			function func10() {
+				var elem = document.getElementById('elem10');
+				elem.scrollTop= 100;
+			}
+
+		//Zadanie 11
+
+			function func11() {
+				var elem = document.getElementById('elem11');
+				elem.scrollTop+=100;
+			}
+
+		//Zadanie 12
+
+			function func12() {
+				var elem = document.getElementById('elem12');
+				alert(elem.scrollWidth);
+			}
+
+		//Zadanie 13
+
+			function func13() {
+				var elem = document.getElementById('elem13');
+				alert(elem.scrollHeight);
+			}
+
+		//Zadanie 14
+
+			function func14() {
+				var elem = document.getElementById('elem14');
+				var sh = elem.scrollHeight-100;
+				elem.scrollTop=sh;
+			}
+
+		//Zadanie 15
+
+			function func15() {
+				alert(pageYOffset);
+			}
+
+		//Zadanie 16
+
+			function func16() {
+				alert(pageXOffset);
+			}
+
+		//Zadanie 17
+
+			function func17() {
+				window.scrollTo(300, 500);
+			}
+
+		//Zadanie 18
+
+			function func18() {
+				window.scrollBy(0, 100);
+			}
+
+		//Zadanie 19
+
+			function func19() {
+				window.scrollTo(0, document.body.clientHeight);
+			}
+
+		//Zadanie 20
+
+			function func20() {
+				window.scrollBy(0, 400);
+			}
+
+
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		#elem1,
+		#elem2,
+		#elem3,
+		#elem4 {
+			width: 40px;
+			height: 50px;
+			border: 5px solid black;
+		}
+
+		#elem5,
+		#elem6,
+		#elem7 {
+			width: 60px;
+			height: 40px;
+			border: 10px solid grey;
+			padding: 20px;
+		}
+
+		#elem8,
+		#elem10,
+		#elem11,
+		#elem12,
+		#elem14 {
+			width: 100px;
+			height: 100px;
+			padding: 20px;
+			border: 10px solid grey;
+			overflow: auto;
+		}
+
+		#elem9,
+		#elem13 {
+			width: 100px;
+			height: 30px;
+			padding: 20px;
+			border: 10px solid grey;
+			overflow: auto;
+			white-space: nowrap;
+		}
+
+
+	</style>
+</body>
+</html>

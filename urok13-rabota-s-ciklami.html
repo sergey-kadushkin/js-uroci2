@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №13. Приемы работы с циклами на JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<header>
+		<h2>Урок №13. Приемы работы с циклами на JavaScript</h2>
+	</header><br>
+
+
+	<button onclick="func2()">Задание № 2</button>
+	<button onclick="func3()">Задание № 3</button>
+	<button onclick="func4()">Задание № 4</button>
+	<button onclick="func5()">Задание № 5</button>
+	<button onclick="func6()">Задание № 6</button>
+	<button onclick="func7()">Задание № 7</button>
+
+
+	<script type="text/javascript">
+
+		function func2() {
+			var str = '';
+			for (var i = 1; i <=9; i++) {
+				str+=i;
+			}
+			alert(str);
+		}
+
+		function func3() {
+			var str = '';
+			for (var i = 9; i >=1; i--) {
+				str+=i;
+			}
+			alert(str);
+		}
+		
+		function func4() {
+			var str = '-';
+			for (var i = 1; i <=9; i++) {
+				str+=i+'-';
+			}
+			alert(str);
+		}
+
+		function func5() {
+			var str = '';
+			for (var i = 1; i <=20; i++) {
+				for (var j = 1; j <=i ; j++) {
+					str+='x';
+				}
+				str+='\n';
+			}
+			alert(str);
+		}
+
+		function func6() {
+			var str = '';
+			for (var i = 1; i <=9; i++) {
+				for (var j = 1; j <=i ; j++) {
+					str+=i;
+				}
+				str+='\n';
+			}
+			alert(str);
+		}
+
+		function func7() {
+			var str = '';
+			for (var i = 0; i <= 10; i++) {
+				str += 'xx';
+				document.write(str + '<br>');
+			}
+
+		}
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 50%;
+			margin: 5px auto;
+		}
+	</style>
+</body>
+</html>

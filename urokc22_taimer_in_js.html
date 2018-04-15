@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №21. Задачи на даты в JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body onload="func8()">
+	<header>
+		<h2>Урок №21. Задачи на даты в JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<input type="text" value="1" id="func1">
+		<input type="submit" onclick="func1()" value="Clic on me">
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<input type="text" value="1" id="func2">
+		<input type="submit" value="start" onclick="func2_start()">
+		<input type="submit" value="stop" onclick="func2_stop()">
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<div id="clock" ></div>
+		<input type="button" name="shgd" onclick="func3()" value="запустить часы">
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<p id="func4">10</p>
+		<input type="button" name="df" onclick="func4()" value="Begin timer" id="go">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8</h3>
+		<p>
+			До полуночи осталось:
+		</p>
+
+		<table border="1" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+				<th>Часы</th>
+				<th>Минуты</th>
+				<th>Секунды</th>
+			</tr>
+			<tr>
+				<td id="hours">10</td>
+				<td id="minutes">06</td>
+				<td id="seconds">42</td>
+			</tr>
+		</tbody></table>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 10</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+
+	</div>
+
+	
+
+
+	<script type="text/javascript">
+		
+		function func1() {
+			window.setInterval(timer, 1000);
+			function timer() {
+				var elem = document.getElementById('func1');
+				elem.value = parseInt(elem.value)+1; //parseInt преобразует строку в число
+			}	
+		}
+
+		function func2_start() {
+			window.timerId = window.setInterval(timer, 1000);
+			function timer() {
+				var elem = document.getElementById('func2');
+				elem.value = parseInt(elem.value)+1;
+			}
+		}
+
+		function func2_stop() {
+			window.clearInterval(window.timerId);
+		}
+
+		function func3() {
+			window.setInterval(timer,1000);
+			function timer(){
+				var clock = document.getElementById('clock');
+				var date = new Date();
+				clock.innerHTML = addZero(date.getHours())+':'+addZero(date.getMinutes())+':'+addZero(date.getSeconds());
+			}
+			function addZero(num){
+				if(num <=9) return '0'+num;
+					else return num;
+			}
+			
+		}
+
+
+		
+		
+	
+
+		function func4() {
+			window.timerID = window.setInterval(timer,1000);
+			document.getElementById('go').disabled = true;
+
+			function stop() {
+				window.clearInterval(window.timerID);
+			}
+
+			function timer() {
+				var elem = document.getElementById('func4');
+				var number = parseInt(elem.innerHTML)-1;
+				elem.innerHTML = number;
+				if(number == 0) {
+					stop();
+				}
+			}
+		}
+		
+		function func5() {
+			var date = new Date();
+			alert(date.getDay());
+		}
+
+		function func6() {
+			var date = new Date();
+			
+			function showDay(num) {
+				var arr = ['Monday',
+						'Tuesday',
+						'Wednesday',
+						'Thursday',
+						'Friday',
+						'Saturday',
+						'Sunday'];
+				return(arr[Number(num)-1]);
+			}
+
+			alert(showDay(date.getDay()));
+		}
+
+		function func7() {
+			var date = new Date(2015, 0, 7); //месяц 0, так как их нумерация с нуля
+			var day = date.getDay();
+
+			function showDay(day) {
+				var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+				return days[day];
+			}
+
+			alert(showDay(day));
+		}
+
+		
+		//Запускает таймер
+		function func8(){
+			window.timerId = window.setInterval(timer, 1000);
+		}
+		function timer(){
+			var seconds = document.getElementById('seconds');
+			var minutes = document.getElementById('minutes');
+			var hours = document.getElementById('hours');
+			var now = new Date();
+			var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 0);
+			var diff =  Math.floor((midnight - now)/1000);//разница в милисекундах, перевели в секунды
+			var hoursRemain   = Math.floor(diff/(60*60));
+			var minutesRemain = Math.floor((diff-hoursRemain*60*60)/60);
+			var secondsRemain = Math.floor(diff%60);
+			hours.innerHTML   = hoursRemain;
+			minutes.innerHTML = addZero(minutesRemain);
+			seconds.innerHTML = addZero(secondsRemain); 
+		}
+		function addZero(num){
+			if(num <=9) return '0'+num;
+				else return num;
+		}
+	
+
+		function func10() {//Выведите на экран количество секунд с начала дня до настоящего момента времени.
+			var date = new Date();
+			var now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+			var result = Math.floor((date.getTime() - now.getTime()) / 1000);
+			alert(result);
+		}
+
+		function func11() {//Выведите на экран количество секунд, которое осталось до конца дня.
+			var date = new Date();
+			var lost = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59);
+			var result = Math.floor((lost.getTime() - date.getTime()) / 1000);
+			alert(result);
+		}
+
+		function func12() {//сколько осталось до дня рождения
+			var date_of_born = prompt('Введите вашу дату рождения в формате гггг-мм-дд');
+			var arr = date_of_born.split('-');
+
+			var b_year = Number(arr[0]);
+			var b_month = Number(arr[1])-1;
+			var b_day = Number(arr[2]);
+
+			date_of_born = new Date(b_year, b_month, b_day, 0, 0, 0)
+
+			var date_now = new Date();
+
+			if ((Number(date_now.getMonth()))>b_month) {
+				var next_birsday = new Date((Number(date_now.getFullYear())+1), b_month, b_day, 0, 0, 0);
+			} else if (((Number(date_now.getMonth()))>b_month) && (Number(date_now.getDate())>b_day)) {
+				var next_birsday = new Date((Number(date_now.getFullYear())+1), b_month, b_day, 0, 0, 0);
+			} else {
+				var next_birsday = new Date(date_now.getFullYear(), b_month, b_day, 0, 0, 0);
+			}
+
+			var days_for_next = Math.floor((next_birsday.getTime() - date_now.getTime()) / (1000*60*60*24));
+
+			alert('До следующего дня рождения - ' + days_for_next + " дней!");
+
+		}
+
+		function func3() {
+			
+		}
+		
+		
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		#clock {
+			width: 300px;
+			height: 60px;
+			font-size: 40px ;
+		}
+	</style>
+</body>
+</html>

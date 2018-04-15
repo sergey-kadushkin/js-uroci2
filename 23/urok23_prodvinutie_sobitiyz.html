@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №22. Продвинутая работа с событиями в JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №22. Продвинутая работа с событиями в JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<p>Click to picture</p>
+		<img src="krolik-1.jpg" class="krolya" id="krolya">
+		<img src="krolik-2.jpg" class="krolya" id="krolya">
+		<img src="krolik-3.jpg" class="krolya" id="krolya">
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<a href="#" title="" class="ssl">Текст первой ссылки</a><br>
+		<a href="#" title="" class="ssl">Текст второй ссылки</a><br>
+		<a href="#" title="" class="ssl">Текст третьей ссылки</a><br>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3-4</h3>
+		
+		<a href="http://ya.ru" title=""  class="flash">Текст первой ссылки</a><br>
+		<a href="http://tut.by" title=""  class="flash">Текст второй ссылки</a><br>
+		<a href="http://google.com" title=""  class="flash">Текст третьей ссылки</a><br>
+	</div>
+
+	
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+
+		<input type="text" name="df" value="I" class="inp">
+		<input type="text" name="df" value="LOVE" class="inp">
+		<input type="text" name="df" value="APPLES" class="inp">
+		<p id="test5"></p>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+
+		<input type="text" name="df" value="I" class="inp6">
+		<input type="text" name="df" value="LOVE" class="inp6">
+		<input type="text" name="df" value="APPLES" class="inp6">
+		
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8</h3>
+		
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 10</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11</h3>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+
+	</div>
+
+	
+
+
+	<script type="text/javascript">
+		//ZADANIE 1
+
+			var elems1 = document.getElementsByClassName('krolya');
+			for (var i = 0; i < elems1.length; i++) {
+				elems1[i].onclick = func1;
+			}
+			
+			function func1(){
+				alert(this.getAttribute('src'));
+			}
+		
+		//ZADANIE 2
+			
+			var elems2 = document.getElementsByClassName('ssl');
+			for (var i = 0; i < elems2.length; i++) {
+					elems2[i].addEventListener('mouseover', func2)
+			}
+
+			function func2() {
+				this.title = this.innerHTML;
+			}	
+
+		//ZADANIE 3-4
+
+			var elems3 = document.getElementsByClassName('flash');
+			for (var i = 0; i < elems3.length; i++) {
+				elems3[i].addEventListener('mouseover', func3);
+			}
+
+			function func3() {
+				var s = this.innerHTML;
+				this.innerHTML = s + ' ' + this.href;
+				this.removeEventListener('mouseover', func3);
+
+			}
+
+		//ZADANIE 5
+
+			var elems5 = document.getElementsByClassName('inp');
+			var got5 = document.getElementById('test5');
+
+			for (var i = 0; i < elems5.length; i++) {
+				elems5[i].addEventListener('blur', func5);
+
+			}
+			function func5() {
+				got5.innerHTML += ' ' + this.value;
+			}
+
+		//ZADANIE 6
+
+			var elems6 = document.getElementsByClassName('inp6');
+
+			for (var i = 0; i < elems6.length; i++) {
+				elems6[i].addEventListener('click', func6);
+			}
+
+			function func6() {
+				alert(this.getAttribute('value'));
+				this.removeEventListener('click', func6);
+			}
+
+		
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		.krolya {
+			width: 150px;
+			height: 150px;
+		}
+
+
+
+	</style>
+</body>
+</html>

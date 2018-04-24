@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №28. Продвинутая работа с объектом Event на JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №28. Продвинутая работа с объектом Event на JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<ul id="ul1">
+			<li>пункт 1</li>
+			<li>пункт 2</li>
+			<li>пункт 3</li>
+			<li>пункт 4</li>
+			<li>пункт 5</li>
+		</ul>
+
+		<button id="button1">Добавить li</button>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<table id="zad2">
+			<tr>
+				<td>sdddss</td>
+				<td>sssssssssss</td>
+			</tr>
+		</table>
+		<br>
+		<input type="text" id="fam" plaseholder="Введите фамилию">
+		<input type="text" id="name" plaseholder="Введите имя">
+		<input type="button" id="button2" value="ADD">
+	</div>
+
+	<script type="text/javascript">
+			
+		//Zadanie 1
+
+			var ul = document.getElementById('ul1');
+
+			ul.addEventListener('click', addSign);
+			function addSign() {
+				event.target.innerHTML = event.target.innerHTML + '!';
+			}
+
+			//Реализация кнопочки добавления новой li:
+			var button = document.getElementById('button1');
+			button.addEventListener('click', addLi);
+			function addLi() {
+				var li = document.createElement('li');
+				li.innerHTML = 'новая li';
+				ul.appendChild(li);
+			}
+
+		//Zadanie 2
+
+			var zad = document.getElementById('zad2');
+
+			zad.addEventListener('click', addSign1);
+			function addSign1() {
+				event.target.innerHTML = prompt('write');
+			}
+
+			var b2 = document.getElementById('button2');
+
+			b2.addEventListener('click', addSign);
+			function addSign() {
+				var fam = document.getElementById('fam');
+				var name = document.getElementById('name');
+				var tr = document.createElement('tr');
+				var td1 = document.createElement('td');
+				td1.innerHTML = fam.value;
+				var td2 = document.createElement('td');
+				td2.innerHTML = name.value;
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				zad.appendChild(tr);
+			}
+
+			
+			
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		#zad2 td {
+				border: 1px solid grey;
+				width: 250px;
+			}
+	</style>
+</body>
+</html>

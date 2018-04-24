@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №35. Задачи на нововведения в ES6 для новичков</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №35. Задачи на нововведения в ES6 для новичков</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<p>arr = <input type="text" name="" id="zad1" onblur="func1()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<p>arr = <input type="text" name="" id="zad2" onblur="func2()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<p>arr = <input type="text" name="" id="zad3" onblur="func3()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<p>arr = <input type="text" name="" id="zad4" onblur="func4()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<input type="button" value="click" name="" id="zad5" onclick="func5()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<input type="button" value="click" name="" id="zad6" onclick="func6()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7</h3>
+		<p>arr = <input type="text" name="" id="zad7" onblur="func7()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8</h3>
+		<p>arr = <input type="text" name="" id="zad8" onblur="func8()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 9</h3>
+		<p>arr = <input type="text" name="" id="zad9" onblur="func9()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 10</h3>
+		<p>arr = <input type="text" name="" id="zad10" onblur="func10()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11</h3>
+		<input type="button" value="click" name="" id="zad11" onclick="func11()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+		<input type="button" value="click" name="" id="zad12" onclick="func12()">
+		<p id="elem12">Hello World</p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 13</h3>
+		<p id="par13">0</p>
+		<p id="par13">0</p>
+		<p id="par13">0</p>
+	</div>
+
+
+	<script type="text/javascript">
+		//ZADANIE 1
+
+			function func1() {
+				let zad1 = document.getElementById('zad1').value.split(' ');
+				let[elem1,elem2,elem3, ...arr] = zad1;
+				console.log(elem1 + ' ' + elem2 + ' ' + elem3 + ' ' + arr);
+			}
+		
+		//ZADANIE 2
+
+			function func2() {
+				let zad2 = document.getElementById('zad2').value.split(' ').reverse();
+				let[elem1,elem2, ...arr] = zad2;
+				console.log(elem1 + ' ' + elem2 + ' ' + arr);
+			}
+			
+		//ZADANIE 3
+			function func3() {
+				let zad3 = document.getElementById('zad3').value.split(' ');
+				let[,elem2,] = zad3;
+				console.log(elem2);	
+			}
+
+		//zadanie 4
+
+			function func4() {
+				let zad4 = document.getElementById('zad4').value.split(' ');
+				let[,elem2='bbb',elem3='eee',] = zad4;
+				console.log(elem2); console.log(elem3);
+			}
+
+		//zadanie 5
+
+			function func5() {
+				let user = {
+					name: 'Пётр',
+					surname: 'Петров',
+					age: '20 лет'
+				};
+
+				let{name, surname, age} = user;
+				console.log(name + ' ' + surname + ' ' + age);
+			}
+
+		//zadanie 6
+
+			function func6() {
+				let user = {
+					name: 'Пётр',
+					/*surname: 'Петров',*/
+					age: '20 лет'
+				};
+
+				let{name = 'Anonim', surname = 'Anonimovich', age = '18'} = user;
+				console.log(name + ' ' + surname + ' ' + age);
+			}
+			
+
+		//zadanie 7
+
+			function func7() {
+				let zad7 = document.getElementById('zad7').value.split(' ');
+				for (let elem of zad7) { console.log(elem)};
+			}
+
+		//zadanie 8
+
+			function func8() {
+				let zad8 = document.getElementById('zad8').value.split(' ').reverse();
+				for (let elem of zad8) { console.log(elem)};
+			}
+
+		//zadanie 9
+
+			function func9() {
+				let zad9 = document.getElementById('zad9').value.split(' ');
+				let sum = 0;
+				for (let elem of zad9) { 
+					sum+=Number(elem);
+				};
+				console.log(sum);
+			}
+
+			//zadanie 10
+
+			function func10() {
+				let zad10 = document.getElementById('zad10').value;
+				let sum =0;
+				for (let elem of zad10) { 
+					if(elem=='o'){
+						sum++;
+					}
+				};
+				console.log('o = ' + sum)
+			}
+
+			//zadanie 11
+				function func11() {
+					function func(n = 'Anonim') { alert('Hi, ' + n)};
+					let name = prompt('Your name');
+					func(name);
+				}
+
+			//zadanie 12
+				function func12() {
+					let obj = {id: 'elem12', color: 'blue', border: '1px solid red', font: '15px Arial'};
+					function func({id, color = 'blue', border='1px dotted red', font='15px Tahoma'}) {
+						let elem12 = document.getElementById('elem12');
+						elem12.style.cssText = 'color:'+color+'; border:'+border+'; font:'+font + ';';
+					}
+					func(obj);
+				}
+
+			//zadanie 13
+
+				var parags = document.querySelectorAll('#par13');
+				parags.forEach(elem => elem.addEventListener('click',
+					() => window.setInterval(
+					() => elem.innerHTML=Number(elem.innerHTML) +1, 1000)
+				));
+
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+
+
+	</style>
+</body>
+</html>

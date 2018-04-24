@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №31. Минипроекты JavaScript для новичков</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №31. Минипроекты JavaScript для новичков</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 15</h3>
+		<div id="accordion">
+			<h3>JavaScript</h3>
+			<div class="tabs__text" id="tabs-1">
+				<p>
+					JavaScript — прототипно-ориентированный сценарный язык программирования. Является реализацией языка ECMAScript.
+				</p>
+				<p>
+					JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений. Наиболее широкое применение находит в браузерах как язык сценариев для придания интерактивности веб-страницам.
+				</p>
+			</div>
+			<h3>Jquery</h3>
+			<div class="tabs__text" id="tabs-2">
+				<p>
+					jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. Также библиотека jQuery предоставляет удобный API для работы с AJAX. Сейчас разработка jQuery ведётся командой jQuery во главе с Джоном Резигом.
+				</p>
+			</div>
+			<h3>DOM</h3>
+			<div class="tabs__text" id="tabs-3">
+				<p>
+					DOM — это не зависящий от платформы и языка программный интерфейс, позволяющий программам и скриптам получить доступ к содержимому HTML-, XHTML- и XML-документов, а также изменять содержимое, структуру и оформление таких документов.
+				</p>
+			</div>
+			<h3>CSS</h3>
+			<div class="tabs__text" id="tabs-4">
+				<p>
+					CSS — формальный язык описания внешнего вида документа, написанного с использованием языка разметки.
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 16</h3>
+		<table id="tableSort">
+			<thead>
+				<tr>
+					<th class="uarr">№</th>
+					<th>Фамилия</th>
+					<th>Имя</th>
+					<th>Возраст</th>
+				</tr>
+			</thead>
+			<tbody><tr>
+				<td>1</td>
+				<td>Иванов</td>
+				<td>Иван</td>
+				<td>32</td>
+			</tr><tr>
+				<td>2</td>
+				<td>Петров</td>
+				<td>Петр</td>
+				<td>24</td>
+			</tr><tr>
+				<td>3</td>
+				<td>Абрамов</td>
+				<td>Абрам</td>
+				<td>34</td>
+			</tr></tbody><tbody>
+			</tbody></table>
+
+	</div>
+
+	
+
+	<script type="text/javascript">
+
+		//Zadanie 15
+				
+				var accordion = document.getElementById('accordion');
+				accordion.addEventListener('click', change);
+				function change(event) {
+					var targ = event.target;
+					if (targ.tagName !== 'H3') return; 
+					if (targ.classList.contains('select')) {
+						hideAll();
+					} else {
+						hideAll();
+						targ.classList.add('select');
+						showText(targ.nextElementSibling);
+					}
+				}
+				function hideAll() {
+					var h3El = accordion.querySelectorAll('h3');
+					var divEl = accordion.querySelectorAll('div');
+					for (var i = 0; i < h3El.length; i++) {
+						h3El[i].classList.remove('select');
+					}
+					for (var i = 0; i < divEl.length; i++) {
+						divEl[i].style.height = '0';
+					}
+				}
+				function showText(textEl) {
+					textEl.style.height = textEl.scrollHeight + 'px';
+				}
+
+	//Zadanie 16
+
+		var table = document.getElementById('tableSort');
+			var sortType = 1; //1 - по возрастанию, 0 - по убыванию
+			var classArrays = {
+				0: 'uarr',
+				1: 'darr',
+			}
+			sortByTh(table.getElementsByTagName('th')[0]);
+			table.addEventListener('click', sortStart);
+			function sortStart(event) {
+				var targ = event.target;
+				var check = event.tagName
+				if (targ.tagName !== 'TH') return;
+				sortByTh(targ);
+			}
+			function sortByTh(th) {
+				var rows = getArray(table.tBodies[0].rows);
+				var index = th.cellIndex;
+				sortRows(rows, index);
+				sortType = -sortType + 1; 
+				addArrow(th);
+				printSort(rows);
+			}
+			function addArrow(th) {
+				var allTh = table.querySelectorAll('th');
+				for (var i = 0; i < allTh.length; i++) {
+					allTh[i].classList.remove(classArrays[0]);
+					allTh[i].classList.remove(classArrays[1]);
+				}
+				th.classList.add(classArrays[sortType]);
+			}
+			function sortRows(rows, index) {
+				rows.sort(sort);
+				function sort(a, b) {
+					var val_a = a.children[index].innerHTML;
+					var val_b = b.children[index].innerHTML;
+					if (parseFloat(val_a)) {
+						val_a = parseFloat(val_a);
+						val_b = parseFloat(val_b);
+					}
+					if (sortType) {
+						return val_a > val_b;
+					} else {
+						return val_b > val_a;
+					}
+				}
+			}
+			function printSort(rows) {
+				var tbody = table.tBodies[0];
+				tbody.innerHTML = '';
+				for (var i = 0; i < rows.length; i++) {
+					tbody.appendChild(rows[i]);
+				}
+			}
+			function getArray(collection) {
+				var arr = [];
+				for (var i = 0; i < collection.length; i++) {
+					arr.push(collection[i]);
+				}
+				return arr;
+			}
+
+	
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}	
+		
+		
+		#accordion {
+			margin: 10px 15%;
+		}
+		#accordion > h3 {
+			color: blue;
+			cursor: pointer;
+			margin: 5px 0;
+			padding: .5em .5em .5em .7em;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			border: 1px solid #c5c5c5;
+			background: #f6f6f6;
+			font-weight: normal;
+			color: #454545;
+		}
+		#accordion > h3.select {
+			border: 1px solid #003eff;
+			background: #007fff;
+			font-weight: normal;
+			color: #ffffff;
+		}
+		#accordion > div {
+			height: 0;
+			overflow: hidden;
+			color: #333;
+			padding-left: 15px;
+			padding-right: 15px;
+			transition: height .5s;
+		}
+		.tabs__text {
+			font: 12px Arial;
+			text-align: justify;
+		}
+	
+		/*table*/
+
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			margin: 0 auto;
+		}
+		td, th {
+			border: 1px solid #000;
+			padding: 10px;
+		}
+		th:after {
+			padding-left: 5px;
+		}
+		th.darr:after {
+			content: '\2193';
+		}
+		th.uarr:after {
+			content: '\2191';
+		}
+		thead {
+			background: #eee;
+			cursor: pointer;
+		} 
+	
+
+	</style>
+</body>
+</html>

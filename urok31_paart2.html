@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №31. Минипроекты JavaScript для новичков</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №31. Минипроекты JavaScript для новичков</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<form>
+			<ol id="test">
+				<li class="question">
+					Какой язык вы предпочитаете?
+					<ol>
+						<li><label><input type="radio" name="a1">JavaScript</label></li>
+						<li><label><input type="radio" name="a1">HTML/CSS</label></li>
+						<li><label><input type="radio" name="a1">PHP</label></li>
+						<li><label><input type="radio" name="a1">C++</label></li>
+						<li><label><input type="radio" name="a1">Русский</label></li>
+						<li><label>Свой ответ: <input type="text" class="your_answer"></label></li>
+					</ol>
+				</li>
+				<li class="question">
+					Какой редактор кода используете?	
+					<ol>
+						<li><label><input type="radio" name="a2">Notepad++</label></li>
+						<li><label><input type="radio" name="a2">Блокнот</label></li>
+						<li><label><input type="radio" name="a2">Sublime Text</label></li>
+						<li><label>Свой ответ: <input type="text" class="your_answer"></label></li>
+					</ol>
+				</li>
+				<li class="question">
+					Какой у вас опыт?
+					<ol>
+						<li><label><input type="radio" name="a3">6 месяцев</label></li>
+						<li><label><input type="radio" name="a3">Около года</label></li>
+						<li><label><input type="radio" name="a3">Пара лет</label></li>
+						<li><label><input type="radio" name="a3">Пол жизни</label></li>
+						<li><label>Свой ответ: <input type="text" class="your_answer"></label></li>
+					</ol>
+				</li>
+			</ol>
+			<div id="result"></div>
+			<input type="reset" id="check" value="Проверить">
+			<input type="button" id="again" value="Пройти опрос еще раз" style="display:none;">
+		</form>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<div id="checklist">
+		<input type="text" id="addItem" autofocus="" placeholder="Введите задачу">
+		<div id="itemParent"></div>
+	</div>
+	</div>
+
+
+	
+
+	
+
+	<script type="text/javascript">
+			
+		//Zadanie 5
+
+
+			var testEl = document.getElementById('test');
+			var checkEl = document.getElementById('check');
+			var againEl = document.getElementById('again');
+			var resultEl = document.getElementById('result');
+			var questionsEl = document.getElementsByClassName('question');
+			var result = [];
+			checkEl.addEventListener('click', checkAnswers);
+			againEl.addEventListener('click', showTest);
+			function checkAnswers() {
+				for (var i = 0; i < questionsEl.length; i++) {
+					var answers = questionsEl[i].querySelectorAll('input[type=radio]');
+					var yourAnswer = questionsEl[i].querySelector('input[type=text]');
+					checkOneAnswer(answers, yourAnswer, i);
+				}
+				printResult();
+				showResult();
+			}
+			function checkOneAnswer(answers, yourAnswer, i) {
+				result[i] = result[i] || {};
+				result[i].answers = result[i].answers || [];
+				result[i].yourAnswer = result[i].yourAnswer || [];
+				result[i].totalAnswers = result[i].totalAnswers || 0;
+				var resAnswers = result[i].answers;
+				if (yourAnswer.value.trim()) {
+					result[i].yourAnswer.push(yourAnswer.value);
+					return;
+				}
+				for (var j = 0; j < answers.length; j++) {
+					if (answers[j].checked) {
+						resAnswers[j] = resAnswers[j] || 0;
+						resAnswers[j]++;
+						result[i].totalAnswers++;
+					} else {
+						resAnswers[j] = resAnswers[j] || 0;
+					}
+				}
+			}
+			function printResult() {
+				var testClone = testEl.cloneNode(true);
+				var questionAll = testClone.querySelectorAll('.question');
+				var allRadio = [];
+				for (var i = 0; i < questionAll.length; i++) {
+					allRadio[i] = [];
+					var radios = questionAll[i].querySelectorAll('input[type=radio]');
+					for (var j = 0; j < radios.length; j++) {
+						allRadio[i].push(radios[j]);
+					}
+				}
+				for (var i = 0; i < result.length; i++) {
+					var answers = result[i].answers;
+					var total = result[i].totalAnswers;
+					for (var j = 0; j < answers.length; j++) {
+						var val = answers[j] / total * 100;
+						val = Math.round(val);
+						if (val) {
+							val = ' (' + val + '%)';
+						} else {
+							val = '';
+						}
+						if (allRadio[i] && allRadio[i][j]) {
+							allRadio[i][j].style.display = 'none';
+							allRadio[i][j].parentElement.innerHTML += val;
+						}
+					}
+				}
+				resultEl.innerHTML = '';
+				resultEl.appendChild(testClone);
+			}
+			function showTest() {
+				testEl.style.display = 'block';
+				checkEl.style.display = 'block';
+				resultEl.style.display = 'none';
+				againEl.style.display = 'none';
+			}
+			function showResult() {
+				testEl.style.display = 'none';
+				checkEl.style.display = 'none';
+				resultEl.style.display = 'block';
+				againEl.style.display = 'block';
+			}
+
+
+		//Zadanie 6
+
+
+			var checklistEl = document.getElementById('checklist');
+			var itemParentEl = document.getElementById('itemParent');
+			var addItemEl = document.getElementById('addItem');
+			addItemEl.addEventListener('keyup', addItem);
+			checklistEl.addEventListener('click', initRemoveItems);
+			checklistEl.addEventListener('change', initCompleteItems);
+			checklistEl.addEventListener('dblclick', initEditItems);
+			checklistEl.addEventListener('keyup', initSaveEdit);
+			document.addEventListener('click', initSaveEditBlur);
+			/*
+				При установлении собития на элемент, оно срабатывает и при срабатывани на 
+				дочерних элементах. Заметнее всего это при установке события на document:
+				Если устанавить, например, события клика на document, то оно будет 
+				срабатывать при клике на любом элементе страницы. 
+				В тоже время фукнция, которая передается при назначении события 
+				получает объект event, в котором в свойстве target содержится элемент, 
+				по котором произошол клик на самом деле.
+				*/
+				function initRemoveItems(event) {
+				/*
+					События назначаются на родительский элемент
+					evet - объект события
+					event.target - элемент на котором произошло событие на самом деле
+					по классу можно узнать что это за элемент
+					и если это тот элемент, который нужно - что-то сделать
+					благодаря этому событие назначается один раз
+					а не каждому элементу отдельно
+					(и не нужно назначать события новым элементам)
+					это называется "делигирование событий"
+					*/
+					var isRemoveEl = event.target.className === 'remove';
+					if (isRemoveEl) {
+						var item = event.target.closest('.item');
+						if (item) {
+							itemParentEl.removeChild(item);
+						}
+					}
+				}
+				function addItem(event) {
+					var val = addItemEl.value;
+					if (val.trim() && event.keyCode === 13) {
+						addItemEl.value = '';
+						itemParentEl.innerHTML = getItemHtml(val) + 
+						itemParentEl.innerHTML;
+					}
+				}
+				function initCompleteItems(event) {
+					var isCheckbox = event.target.className === 'checkbox';
+					if (isCheckbox) {
+						var item = event.target.closest('.item');
+						if (item && event.target.checked) {
+							item.classList.add('complete');
+						}
+					}
+				}
+				function initEditItems(event) {
+					var isText = event.target.className === 'text';
+					if (isText) {
+						var item = event.target.closest('.item');
+						if (item) {
+							item.classList.add('edit');
+							var editInput = item.querySelector('input.edit');
+							editInput.value = event.target.innerHTML;
+							editInput.focus();
+						}
+					}
+				}
+				function initSaveEdit(event) { 
+					var isText = event.target.className === 'edit';
+					if (isText && event.keyCode === 13) {
+						var item = event.target.closest('.item');
+						if (item) {
+							item.classList.remove('edit');
+							var newText = event.target.value.trim();
+							if (newText) {
+								item.querySelector('.text').innerHTML = newText;
+							}
+						}
+					}
+				}
+				function initSaveEditBlur(event) {
+					var isEdit = event.target.className === 'edit';
+					if (isEdit) return;
+					var edits = checklistEl.querySelectorAll('.item.edit input.edit');
+					for (var i = 0; i < edits.length; i++) {
+						var item = edits[i].closest('.item');
+						if (item) {
+							item.classList.remove('edit');
+							var newText = edits[i].value.trim();
+							if (newText) {
+								item.querySelector('.text').innerHTML = newText;
+							}
+						}
+					}
+				}
+				function getItemHtml(val) {
+					return '<div class="item">'
+					+		 '<input type="checkbox" class="checkbox">'
+					+		 '<div class="text">' + val + '</div>'
+					+		 '<input type="text" class="edit">'
+					+		 '<button class="remove">x</button>'
+					+	 '</div>'
+				};
+
+		
+		//zadnie 3
+
+	
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		#zad2 td {
+				border: 1px solid grey;
+				width: 250px;
+			}
+
+		
+		#checklist {
+			border: 1px solid;
+			width: 350px;
+			margin: 0 auto;
+		}
+		#addItem {
+			width: 330px;
+			margin: 0 auto;
+			display: block;
+			margin-bottom: 5px;
+			margin-top: 5px;
+			border: 1px solid;
+			padding: 5px;
+		}
+		.item {
+			border-top: 1px solid;
+			position: relative;
+		}
+		.item .checkbox {
+			position: absolute;
+			left: 3px;
+			top: 10px;
+		}
+		.item .text {
+			margin-left: 25px;
+			background: #fff;
+			color: #000;
+			width: 310px;
+			padding: 5px;
+			margin-bottom: 2px;
+			margin-top: 2px;
+		}
+		.item .edit {
+			display: none;
+		}
+		.item.edit .text {
+			display: none;
+		}
+		.item.edit .edit {
+			display: block;
+			border: 1px solid #000;
+			background: #eee;
+			margin-left: 25px;
+			outline: none;
+			color: #000;
+			width: 275px;
+			padding: 5px;
+			margin-bottom: 2px;
+			margin-top: 2px;
+		}
+		.item.complete {
+			text-decoration: line-through;
+		}
+		.item.complete .checkbox {
+			display: none;
+		}
+		.item .remove {
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			color: #c00;
+			font-weight: bold;
+			font-size: 16px;
+			border-radius: 50%;
+			font-family: Arial;
+			cursor: pointer;
+			border: 1px solid;
+			background: none;
+			outline: none;
+		}
+		.item:hover .remove:hover {
+			color: red;
+		}
+	
+
+	
+	</style>
+</body>
+</html>

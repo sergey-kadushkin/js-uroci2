@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №29. Задачи на разные полезные темы JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №29. Задачи на разные полезные темы JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<form id="form1">
+			<input type="text" value="4">
+			<input type="text" value="41">
+			<input type="text" value="8">
+			<input type="button" value="Click" onclick="func1()">
+		</form>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<form action="" id="form2">
+			<input type="text" value="5">
+			<input type="text" value="5">
+			<input type="text" value="5">
+		</form>
+		<form action="" id="form2">
+			<input type="text" value="5">
+			<input type="text" value="5">
+			<input type="text" value="5">
+		</form>
+		<form action="" id="form2">
+			<input type="text" value="5">
+			<input type="text" value="5">
+			<input type="text" value="5">
+		</form>
+		<input type="button" value="Click" onclick="func2()">
+	
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<p>
+			<select id="select">
+				<option>Выберите героя</option>
+				<option>Чебурашка</option>
+				<option>Крокодил Гена</option>
+				<option>Шапокляк</option>
+				<option>Крыса Лариса</option>
+			</select>
+		</p>
+		<p><input type="text" id="zad3"></p>
+
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<p>
+			<select id="select4">
+				<option>Выберите героя</option>
+				<option>Чебурашка</option>
+				<option>Крокодил Гена</option>
+				<option>Шапокляк</option>
+				<option>Крыса Лариса</option>
+			</select>
+		</p>
+		<p><input type="text" id="zad4"></p>
+		<p><input type="submit" id="zad44"></p>
+	
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+	
+	</div>
+
+	<script type="text/javascript">
+			
+		//Zadanie 1
+
+			function func1() {
+				var arr = document.forms[id="form1"].elements;
+				var summ = 0;
+				for (var i = 0; i < arr.length-1; i++) {
+						summ+=Number(arr[i].value);
+					}	
+					alert(summ);
+			}
+
+
+		//Zadanie 2
+
+			function func2() {
+				var arr = document.forms[id="form2"];
+				var summ = 0;
+				for (var i = 0; i < arr.length; i++) {
+					
+					for (var j = 0; j < arr[i].elements.length; j++) {
+						summ+=arr[i].elements[j].value;
+					}
+				}
+				alert(summ);
+			}
+		//zadnie 3
+			let select = document.getElementById('select'),
+			input = document.getElementById('zad3');
+
+			select.addEventListener('click', function(){
+				for(let i = 0; i < select.length; i++) {
+					if(select[i].selected) {
+						input.value = select[i].innerHTML;
+					}
+				}
+			})
+			
+		//zad 4
+
+			let select4 = document.getElementById('select4'),
+			input4 = document.getElementById('zad4'),
+			submit4 = document.getElementById('zad44');
+
+			submit4.addEventListener('click', function(){
+				select4[input4.value*1].selected = true;
+			});
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		#zad2 td {
+				border: 1px solid grey;
+				width: 250px;
+			}
+	</style>
+</body>
+</html>

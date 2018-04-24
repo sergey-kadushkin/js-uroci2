@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №26. Задачи на работу с метриками для window на JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №26. Задачи на работу с метриками для window на JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<input type="button" value="Click" onclick="func1()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<input type="button" value="Click" onclick="func2()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<div id="elem3"></div>
+		<input type="button" value="Click" onclick="func3()">
+	</div>
+
+	<script type="text/javascript">
+			
+		//Zadanie 1
+
+			function func1() {
+				alert(document.documentElement.clientHeight)
+			}
+
+		//Zadanie 2
+
+			function func2() {
+				window.scrollTo(0, window.innerHeight);
+			}
+
+		//Zadanie 3
+
+			function func3() {
+				alert('Текущая прокрутка сверху: ' + window.pageYOffset )
+			}
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		
+	</style>
+</body>
+</html>

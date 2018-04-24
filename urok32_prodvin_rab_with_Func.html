@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №32. Задачи на продвинутую работу с DOM на JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №32. Задачи на продвинутую работу с DOM на JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<p>a = <input type="text" name="" id="zad1" onblur="func1()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<p>a = <input type="text" name="" id="zad2" onblur="func2()"></p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<input type="button" value="click" name="" id="zad3" onclick="func3()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<input type="button" value="click" name="" id="zad4" onclick="func4()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<input type="button" value="click" name="" id="zad5" onclick="func5()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<input type="button" value="click" name="" id="zad6" onclick="func6()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7</h3>
+		<input type="button" value="click" name="" id="zad6" onclick="func7()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8</h3>
+		<input type="button" value="click" name="" id="zad6" onclick="func7()">
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		//ZADANIE 1
+
+			function func1() {
+				var zad1 = Number(document.getElementById('zad1').value);
+				if (zad1>0) {
+					var ggg = function() {
+						alert('!');
+					}
+				} else {
+					var ggg = function() {
+						alert('!!');
+					}
+				}
+				alert(ggg);
+			}
+		
+		//ZADANIE 2
+
+			function func2() {
+				var zad2 = Number(document.getElementById('zad2').value);
+				var ggg = function(n,f) { return(f(n)); };
+				funcInFour = function(a) { return a*a };
+				alert(ggg(ggg(zad2,funcInFour),funcInFour));
+				
+			}
+			
+		//ZADANIE 3
+			function func3() {
+				
+				var ggg = function(a,b) { return a() + b() };
+				var f1 = function() { return 3 };
+				var f2 = function() { return 4 };
+				alert(ggg(f1,f2));
+				
+			}
+
+		//zadanie 4
+
+			function func4() {
+				var x1 = Number(prompt('x = '));
+				var ggg = function(x,f1,f2) { return f1(x)+f2(x)};
+				var kvadrat = function(a) { return a*a };
+				var kub = function(b) { return b*b*b };
+				alert('x^2 + x^3 = '+ ggg(x1,kvadrat,kub));
+			}
+
+		//zadanie 5
+
+			function func5() {
+				var each = function(startArr, f){return f(startArr)};
+				var arr = [64, 49, 36, 25, 16];
+				var myFunc = function(a){
+					var newArr = [];
+					for (var i = 0; i < a.length; i++) {
+						newArr[i]=Math.sqrt(a[i]);
+					}
+					return newArr;
+				}
+				alert(each(arr, myFunc));
+			}
+
+		//zadanie 6
+
+			function func6() {
+				var each = function(numArr, funcArray) {
+					var newArr = [];
+					for (var i = 0; i < numArr.length; i++){
+						var current = funcArray[i % funcArray.length](numArr[i]);
+						
+						newArr.push(current);
+				  	}
+					return newArr
+				}
+
+				var f1 = function(a){return a + 3};
+				var f2 = function(a){return a + 2};
+				var f3 = function(a){return a + 1};
+				var funcAll = [f1, f2, f3];
+				var startArray = [0,1,2, 3, 4, 5, 6, 7, 8, 9,10, 11];
+				alert(each(startArray, funcAll));
+			}
+
+		//zadanie 7
+
+			function counter() {
+				var c =1;
+				return function() { return c++; }
+			}
+
+			var func7 = counter();
+
+			console.log(func7());
+			console.log(func7());
+			console.log(func7());
+			console.log(func7());
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+
+
+	</style>
+</body>
+</html>

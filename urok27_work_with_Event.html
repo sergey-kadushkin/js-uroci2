@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №27. Основы работы с объектом Event на JavaScript</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<header>
+		<h2>Урок №27. Основы работы с объектом Event на JavaScript</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<div id="elem1"></div>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<input id="input" onkeypress="func4(event)">
+		<div id="result"></div>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<input id="input5" onkeypress="func5(event);">
+		<div id="result6"></div>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<button id="zad6">Click with Ctrl</button>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7</h3>
+		<button id="zad7">Click with Ctrl, Alt or Shift</button>
+	</div>
+
+
+	<script type="text/javascript">
+			
+		//Zadanie 1
+
+			var elem = document.getElementById('elem1');
+			elem.onmousemove = func;
+			function func(event) {
+				this.innerHTML = event.clientX + ':' + event.clientY;
+			}
+
+		//Zadanie 4
+
+			function func4(event) {
+				var input = document.getElementById('input');
+				var result = document.getElementById('result');
+				result.innerHTML = event.keyCode;
+			}
+
+		//Zadanie 5
+
+			function func5(event) {
+				document.getElementById('result6').innerHTML = String.fromCharCode(event.which);
+			}
+
+		//Zadanie 6
+
+			var button = document.getElementById('zad6');
+
+			button.addEventListener('click', func);
+			function func(event) {
+				if (event.ctrlKey) {
+					button.style.backgroundColor='red';
+				}
+			}
+
+			//Zadanie 7
+
+			var button = document.getElementById('zad7');
+
+			button.addEventListener('click', func);
+			function func(event) {
+				if (event.ctrlKey) {
+					button.innerHTML = '1';
+				} else if (event.altKey) {
+					button.innerHTML = '2';
+				} else if (event.shiftKey) {
+					button.innerHTML = '3';
+				}
+			}
+
+
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+		#elem1 {
+			width: 600px;
+			height: 400px;
+			border: 3px solid grey;
+		}
+
+		
+
+		#child2 {
+			width: 20px;
+			height: 20px;
+			border: 2px solid red;
+			position: absolute;
+		}
+	</style>
+</body>
+</html>

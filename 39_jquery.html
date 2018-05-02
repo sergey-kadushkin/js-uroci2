@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №39. Работа с событиями jQuery</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Урок №39. Работа с событиями jQuery</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<p class="zad1">Click 1</p>
+		<p class="zad1">Click 2</p>
+		<p class="zad1">Click 3</p>		
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2-3</h3>
+		<a class="zad2" href="fasfasf">Click 1</a>
+		<a class="zad2" href="fasfasaa">Click 2</a>
+		<a class="zad2" href="fafvxcasfa">Click 3</a>		
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<p id="test"></p>		
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6-7</h3>
+		<p class="squere">4</p>
+		<p class="squere">5</p>
+		<p class="squere">23</p>
+		<p class="squere">12</p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8-9</h3>
+		<a class="zad8" href="sdkfjlsdf">Hover me!</a>
+		<a class="zad8" href="dsvcxvbb">Hover me!</a>
+		<a class="zad8" href="7ujt">Hover me!</a>
+		<a class="zad8" href="be5hebgtd">Hover me!</a>
+	</div>
+	
+	<div class="zad">
+		<h3>Задание № 11</h3>
+		<ul>
+			<li>text text  etxt</li>
+			<li>text text  etxt</li>
+			<li>text text  etxt</li>
+		</ul>
+		<input type="button" value="click" name="" class="zad11">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+		<table class="table12">
+			<tr>
+				<td>Kadushkin</td>
+				<td>Sergey</td>
+			</tr>
+			<tr>
+				<td>Kadushkin</td>
+				<td>Sergey</td>
+			</tr>
+		</table>
+		<input type="text" class="fam" placeholder="Фамилия">
+		<input type="text" class="name"  placeholder="Имя">
+		<input type="submit" value="Click to Add" class="zad12">
+	</div>
+
+	<script type="text/javascript">
+			//ZADANIE 1
+					$('.zad1').click(function() {
+						alert($(this).html());
+					});
+				
+			//ZADANIE 2-3
+					$('a.zad2').one('mouseover', function() {
+						$(this).append($(this).attr('href'));
+					});
+
+			//zadanie 4
+				$('input').on('blur', function(){ 
+					$('#test').append($(this).val()); 
+				})
+
+			//zadanie 6-7
+				$('p.squere').one('click', function(){
+					var $elem=$(this);
+					$elem.html($elem.html()*$elem.html());
+					});
+				$('p.squere').one('dblclick', function() {
+					var $elem=$(this);
+					$elem.html($elem.html()*2);
+				})
+					
+			//zadanie 8-9
+				$('a.zad8').on('mouseover', function func(){ 
+					var $elem=$(this); 
+					$elem.append('(' + $elem.attr('href') + ')'); 
+					$elem.off('mouseover', func); 
+				})
+
+
+		//ZADANIE 11
+			$('.zad11').on('click', function() {
+				$(this).prev().append('<li>Пункт</li>');
+			})
+			$('ul').on('click', 'li', function() {
+				$(this).append('!');
+			});	
+
+		//zadanie 12
+			$('.zad12').on('click', function() {
+				$('.table12').append('<tr><td>'+$('.fam').val()+'</td><td>'+$('.name').val()+'</td></tr>');
+			});
+
+			$('.table12').on('click', 'td', function() {
+				$(this).html(prompt()); 
+			})
+			
+
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+		
+		.fall1 {
+			width: 300px;
+			height: 45px;
+			background: blue;
+		}
+
+		.fall2 {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+		.fall3 {
+			width: 200px;
+			height: 25px;
+			background: green;
+		}
+
+		td {
+			border: 2px solid black;
+		}
+
+
+	</style>
+</body>
+</html>

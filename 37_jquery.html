@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №37. Манипулирование элементами страницы через jQuery</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Урок №37. Манипулирование элементами страницы через jQuery</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<h4 class="zad1">text text</h4>
+		<h4 class="zad1">text text</h4>
+		<h4 class="zad1">text text</h4>
+		<input type="button" value="click" name="" id="zad5" onclick="func1()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<h4 class="zad2">text text</h4>
+		<h4 class="zad2">text text</h4>
+		<h4 class="zad2">text text</h4>
+		<input type="button" value="click" name="" id="zad2" onclick="func2()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<h4 class="zad3">text text</h4>
+		<h4 class="zad3">text text</h4>
+		<h4 class="zad3">text text</h4>
+		<input type="button" value="click" name="" id="zad3" onclick="func3()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<h4 class="zad4">text text</h4>
+		<h4 class="zad4">text text</h4>
+		<h4 class="zad4">text text</h4>
+		<input type="button" value="click" name="" id="zad5" onclick="func4()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<p>text</p>
+		<input type="button" value="click" name="" id="zad5" onclick="func5()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<input type="button" value="click" name="" id="zad6" onclick="func6()">
+	</div>
+
+	
+	<div class="zad">
+		<h3>Задание № 10</h3>
+		<input type="button" value="click" name="" id="zad10" onclick="func10()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11</h3>
+		<input type="button" value="click" name="" id="zad11" onclick="func11()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+		<input type="button" value="click" name="" id="zad12" onclick="func12()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 14</h3>
+		<input type="button" value="click" name="" id="zad12" onclick="func14()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 15</h3>
+		<input type="button" value="click" name="" id="zad12" onclick="func15()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 18</h3>
+		<a href="asdasd">Ссылка</a>
+		<a href="dfsf">Ссылка</a>
+		<a href="dfbsdse">Ссылка</a>
+		<input type="button" value="click" name="" id="zad12" onclick="func18()">
+	</div>
+
+		<div class="zad">
+		<h3>Задание № 21</h3>
+		<input type="button" value="click" name="" id="zad21" onclick="func21()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 24</h3>
+		<li>Text text</li>
+		<li>Text text</li>
+		<input type="button" value="click" name="" id="zad24" onclick="func24()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 25</h3>
+		<li class="www">Text text</li>
+		<li class="www">Text text</li>
+		<input type="button" value="click" name="" id="zad25" onclick="func25()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 26</h3>
+		<input type="button" value="click" name="" id="zad26" onclick="func26()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 27</h3>
+		<input type="button" value="click" name="" id="zad27" onclick="func27()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 28</h3>
+		<input type="button" value="click" name="" class="zad28" onclick="func28()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 29</h3>
+
+		<textarea name="" id="" cols="30" rows="10" class="zad29">ksdhkahsjkfh</textarea>
+
+		<input type="button" value="click" name="" id="zad29" onclick="func29()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 30</h3>
+		<input type="button" value="click" name="" id="zad30" onclick="func30()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 31</h3>
+		<input type="button" value="click" name="" id="zad31" onclick="func31()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 33</h3>
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="button" value="click" name="" id="zad33" onclick="func33()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 34</h3>
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="button" value="click" name="" id="zad34" onclick="func34()">
+	</div>
+
+
+	<script type="text/javascript">
+			//ZADANIE 1
+
+			function func1() {
+				$('.zad1').wrap('<div>');
+			}
+		
+		//ZADANIE 2
+
+			function func2() {
+				$('.zad2').wrap('<div class="test"></div>');
+			}
+			
+		//ZADANIE 3
+			function func3() {
+				$('.zad3').wrapInner('<i>');
+			}
+
+		//zadanie 4
+
+			function func4() {
+				$('h4').wrapAll('<i>');
+			}
+
+		//zadanie 5
+
+			function func5() {
+				$('div > p').unwrap();
+			}
+
+		//zadanie 6
+
+			function func6() {
+				$('h2').before('<p>!</p>')
+			}
+			
+
+		//zadanie 10
+
+			function func10() {
+				$('h4').append('&');
+			}
+
+			//zadanie 11
+				function func11() {
+					$('h4').append('&').prepend('!').css('color', 'red');
+				}
+
+			//zadanie 12
+				function func12() {
+					$('h2').replaceWith($('h2').text());
+				}
+
+			//zadanie 14
+				function func14() {
+					$('h2').remove();
+				}
+
+			//zadanie 15
+				function func15() {
+					$('h2').empty();
+				}
+
+			//zadanie 18
+				function func18() {
+					$('a').each(function (){
+						alert($(this).attr('href'));
+					});
+				}
+
+			//zadanie 21
+				function func21() {
+					$('a').each(function (){
+						var $elem = $(this);
+						$elem.html($elem.attr('href'));
+					});
+				}
+
+			//zadanie 24
+				function func24() {
+					$('li').addClass('test');
+				}
+
+			//zadanie 25
+				function func25() {
+					$('li').removeClass('www');
+				}
+
+			//zadanie 26
+				function func26() {
+					$('li').toggleClass('www');
+				}
+
+			//zadanie 27
+				function func27() {
+					alert($('li').hasClass('www'));
+				}
+
+			//zadanie 28
+				function func28() {
+					alert($('.zad28').val());
+				}
+
+			//zadanie 29
+				function func29() {
+					alert($('.zad29').val());
+				}
+
+			//zadanie 30
+				function func30() {
+					$('input').each(function() {
+						alert($(this).val())
+					})
+				}
+
+			//zadanie 31
+				function func31() {
+					$('input').each(function() {
+						$(this).val('!');
+					})
+				}
+
+			//zadanie 33
+				function func33() {
+					$('input[type="checkbox"]').prop('checked', false);
+				}
+
+			//zadanie 34
+				function func34() {
+					$('input[type="checkbox"]').prop('checked', true);
+				}
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+		
+		.fall1 {
+			width: 300px;
+			height: 45px;
+			background: blue;
+		}
+
+		.fall2 {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+		.fall3 {
+			width: 200px;
+			height: 25px;
+			background: green;
+		}
+
+
+	</style>
+</body>
+</html>

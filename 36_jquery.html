@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №36. Задачи на основы работы с jQuery для новичков</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Урок №36. Задачи на основы работы с jQuery для новичков</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<h4 class="zad1">text text</h4>
+		<h4 class="zad1">text text</h4>
+		<h4 class="zad1">text text</h4>
+		<input type="button" value="click" name="" id="zad5" onclick="func1()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<input type="button" value="click" name="" id="zad2" onclick="func2()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<input type="button" value="click" name="" id="zad3" onclick="func3()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<input type="button" value="click" name="" id="zad5" onclick="func4()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<input type="button" value="click" name="" id="zad5" onclick="func5()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6</h3>
+		<p>text text</p>
+		<p>text text</p>
+		<p>text text</p>
+		<input type="button" value="click" name="" id="zad6" onclick="func6()">
+	</div>
+
+	
+	<div class="zad">
+		<h3>Задание № 10</h3>
+		<input type="button" value="click" name="" id="zad10" onclick="func10()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11</h3>
+		<input type="button" value="click" name="" id="zad11" onclick="func11()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 12</h3>
+		<input type="button" value="click" name="" id="zad12" onclick="func12()">
+		<p id="elem12">Hello World</p>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 18</h3>
+		<li>Пункт</li>
+		<li>Пункт</li>
+		<li>Пункт</li>
+		<input type="button" value="click" name="" id="zad12" onclick="func18()">
+	</div>
+
+		<div class="zad">
+		<h3>Задание № 21</h3>
+		<li class="li21">Пункт</li>
+		<li class="li21">Пункт</li>
+		<li class="li21">Пункт</li>
+		<input type="button" value="click" name="" id="zad21" onclick="func21()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 22-26</h3>
+		<li class="li21">Пункт</li>
+		<li class="li21">Пункт</li>
+		<li class="li21">Пункт</li>
+		<li class="li21">Пункт</li>
+		<li class="li21">Пункт</li>
+		<input type="button" value="click" name="" id="zad21" onclick="func22()">
+		<input type="button" value="click" name="" id="zad21" onclick="func23()">
+		<input type="button" value="click" name="" id="zad21" onclick="func24()">
+		<input type="button" value="click" name="" id="zad21" onclick="func25()">
+		<input type="button" value="click" name="" id="zad21" onclick="func26()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 35</h3>
+		<input type="button" value="click" name="" id="zad21" onclick="fun35()">
+	</div>
+
+
+	<script type="text/javascript">
+			//ZADANIE 1
+
+			function func1() {
+				$('.zad1').html('!!!');
+			}
+		
+		//ZADANIE 2
+
+			function func2() {
+				$('h3').css('color','blue');
+			}
+			
+		//ZADANIE 3
+			function func3() {
+				$('h3').css({'color': 'red', 'font-size': '30px'});
+			}
+
+		//zadanie 4
+
+			function func4() {
+				$('.zad').css('border', '1px solid black');
+			}
+
+		//zadanie 5
+
+			function func5() {
+				$('h4.zad1').css('color', 'red')
+			}
+
+		//zadanie 6
+
+			function func6() {
+				$('p + p').css('color', 'red');
+			}
+			
+
+		//zadanie 10
+
+			function func10() {
+				$(':header').css('color', 'red');
+			}
+
+			//zadanie 11
+				function func11() {
+					$('h2:not(.test)').css('color', 'red');
+				}
+
+			//zadanie 12
+				function func12() {
+					$(':header:not(.test)').css('color', 'red');
+				}
+
+			//zadanie 18
+				function func18() {
+					$('li:contains("Пункт")').css('color', 'red');
+				}
+
+			//zadanie 21
+				function func21() {
+					$('li:eq(5)').css('color', 'red');
+				}
+
+			//zadanie 22
+				function func22() {
+					$('li:gt(9)').css('color', 'red');
+				}
+
+			//zadanie 23
+				function func23() {
+					$('li:lt(9)').css('color', 'red');
+				}
+
+			//zadanie 24
+				function func24() {
+					$('li:gt(8)').css('color', 'red');
+				}
+
+			//zadanie 25
+				function func25() {
+					$('li:first').css('color', 'red');
+				}
+
+			//zadanie 26
+				function func26() {
+					$('li:last').css('color', 'red');
+				}
+
+			//zadanie 35
+				function func35() {
+					$('p').each(function(){
+						alert($(this).html())
+					});
+				}
+
+				
+
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+
+
+
+	</style>
+</body>
+</html>

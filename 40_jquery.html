@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №40. Работа с анимацией jQuery</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Урок №40. Работа с анимацией jQuery</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1</h3>
+		<input type="submit" id="show1" value="SlideDodwn">
+		<input type="submit" id="hide1" value="SlideUp">
+		<ul id="elem1">
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+		</ul>	
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 2</h3>
+		<input type="submit" id="toggle2" value="SlideToggle">
+		<ul id="elem2">
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+		</ul>			
+	</div>
+	
+	<div class="zad">
+		<h3>Задание № 3</h3>
+		<input type="submit" id="fadeIn3" value="fadeIn">
+		<input type="submit" id="fadeOut3" value="fadeOut">
+		<input type="submit" id="fadeToDown3" value="fadeToDown">
+		<input type="submit" id="fadeToUp3" value="FadeToUp">
+		<ul id="elem3">
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+		</ul>			
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4</h3>
+		<input type="submit" id="toggle4" value="fideToggle">
+		<ul id="elem4">
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+		</ul>		
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 5</h3>
+		<input type="submit" id="show5" value="Show" onclick="show5()">
+		<input type="submit" id="hide6" value="Hide" onclick="hide5()">
+		<ul id="elem5">
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+			<li>point of list</li>
+		</ul>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6. Animate</h3>
+		<div class="anim zad6"></div>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 7. Animate</h3>
+		<div class="anim zad7"></div>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8. Animate</h3>
+		<div class="anim zad8"></div>
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 9. Animate</h3>
+		<div class="anim zad9"></div>
+	</div>
+
+
+	<script type="text/javascript">
+			//ZADANIE 1
+				$('#hide1').click(function() {
+					$('#elem1').slideUp(1000);
+				});
+
+				$('#show1').click(function() {
+					$('#elem1').slideDown(1000);
+				});
+				
+			//ZADANIE 2
+				$('#toggle2').click(function() {
+					$('#elem2').slideToggle(1000);
+				});
+			//ZADANIE 3
+				$('#fadeIn3').click(function() {
+					$('#elem3').fadeIn(1000);
+				});
+				$('#fadeOut3').click(function() {
+					$('#elem3').fadeOut(1000);
+				});
+				$('#fadeToDown3').click(function() {
+					$('#elem3').fadeTo(1000, 0.5);
+				});
+				$('#fadeToUp3').click(function() {
+					$('#elem3').fadeTo(1000, 1);
+				});
+
+		
+			//zadanie 4
+				$('#toggle4').click(function() {
+					$('#elem4').fadeToggle(1000);
+				});
+
+			//zadanie 4
+				function hide5() {
+					$('#elem5').hide(500);
+				};
+				function show5() {
+					$('#elem5').show(500);
+				};
+				
+
+
+			//zadanie 6
+				$('.zad6').one('click', function(){
+						$(this).animate({width:'200px'},1000);
+					});
+
+				//zadanie 7
+				$('.zad7').on('click', function(){
+						$(this).animate({width:'+=100px'},1000);
+					});
+
+				//zadanie 8
+				$('.zad8').on('click', function(){
+						$(this).animate({width:'+=100px', height: '+=100px'},1000);
+					});
+
+					
+			//zadanie 9
+				$('.zad9').on('click', function(){
+						$(this).animate({marginLeft: '+=100px'},1000);
+					});
+
+		
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+		
+		.fall1 {
+			width: 300px;
+			height: 45px;
+			background: blue;
+		}
+
+		.fall2 {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+		.fall3 {
+			width: 200px;
+			height: 25px;
+			background: green;
+		}
+
+		td {
+			border: 2px solid black;
+		}
+
+		ul {
+			padding: 30px;
+			border: 1px solid black;
+			width: 100px;
+		}
+
+		.anim {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+		}
+
+
+	</style>
+</body>
+</html>

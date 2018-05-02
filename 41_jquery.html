@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №41. Практика на отработку библиотеки jQuery</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Урок №41. Практика на отработку библиотеки jQuery</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1-3</h3>
+		<p class="www"><b>TextTextTExt</b></p>
+		<p class="www"><b>TextTextTExt</b></p>
+		<p><b>TextTextTExt</b></p>
+		<input type="submit" id="show1" value="WrapInner(p:has(b))" onclick="func1()">
+		<input type="submit" id="toggle2" value="Click2" onclick="func2()">
+		<input type="submit" id="toggle2" value="Click3" onclick="func3()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 4-5</h3>
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="submit" id="toggle4" value="Click4" onclick="func4()">
+		<input type="submit" id="toggle4" value="Click5" onclick="func5()">	
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 6-8. </h3>
+		<p>text etxte tetxf</p>
+		<p>text etxte tetxf</p>
+		<p id="test6">text ashdaetxte tetxf</p>
+		<p>text etxte tetxf</p>
+		<p>text etxte tetxf</p>
+		<input type="submit" id="toggle4" value="Click6" onclick="func6()">
+		<input type="submit" id="toggle4" value="Click7" onclick="func7()">
+		<input type="submit" id="toggle4" value="Click8" onclick="func8()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 9-10.</h3>
+		<ol>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+			<li>sadhfkj</li>
+		</ol>
+		<input type="submit" id="toggle4" value="Click9" onclick="func9()">
+		<input type="submit" id="toggle4" value="Click10" onclick="func10()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 11-14.</h3>
+		<p class="www">text etxte tetxf</p>
+		<p>text etxte tetxf</p>
+		<p id="test6">text ashdaetxte tetxf</p>
+		<p>text etxte tetxf</p>
+		<p>text etxte tetxf</p>
+		<p></p>
+		<input type="submit" id="toggle4" value="Click11" onclick="func11()">
+		<input type="submit" id="toggle4" value="Click12" onclick="func12()">
+		<input type="submit" id="toggle4" value="Click13" onclick="func13()">
+		<input type="submit" id="toggle4" value="Click14" onclick="func14()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 17.</h3>
+		<input type="text" value="43">
+		<input type="text" value="12">
+		<input type="text" value="124">
+		<input type="submit" id="toggle4" value="Click15" onclick="func17()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 18.</h3>
+		<p>I </p>
+		<p id="test18">Love</p>
+		<p> You!</p>
+		<input type="submit" id="toggle4" value="Click15" onclick="func18()">
+	</div>
+
+		<div class="zad">
+		<h3>Задание № 21-32.</h3>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p class="www21">textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p class="www21">textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p class="www21">textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p class="www21">textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>textsdjkfhskdjfhsvdsjhf sdgfshd fsdfhsgdf</p>
+		<p>132</p>
+		<p>43</p>
+		<p>352</p>
+		<input type="submit" id="toggle4" value="Click21" onclick="func21()">
+		<input type="submit" id="toggle4" value="Click22" onclick="func22()">
+		<input type="submit" id="toggle4" value="Click23" onclick="func23()">
+		<input type="submit" id="toggle4" value="Click24" onclick="func24()">
+		<input type="submit" id="toggle4" value="Click25" onclick="func25()">
+		<input type="submit" id="toggle4" value="Click27" onclick="func27()">
+		<input type="submit" id="toggle4" value="Click28" onclick="func28()">
+	</div>
+
+
+	<script type="text/javascript">
+			//ZADANIE 1
+				function func1() {
+					$('p:has(b)').wrap('<div>');
+				}
+				
+			//ZADANIE 2
+			function func2() {
+					$('p.www').prepend('!').add(':header').css('color', 'red');
+				}
+				
+			//ZADANIE 3
+			function func3() {
+					$('p').each(function() {
+						var paragraph = $(this);
+						var text = paragraph.html();
+						paragraph.replaceWith('<div>' + text + '</div>');
+					});
+				}
+
+		
+			//zadanie 4
+				function func4() {
+					$(':checkbox').prop('disabled', true);
+				}
+			
+			//zadanie 5
+				function func5() {
+					$(':checkbox').not('disabled', true).prop('checked', true);
+				}
+				
+
+
+			//zadanie 6-8
+				function func6() {
+					$('#test6').prev().html('!').end().next().html('?');
+				}
+				function func7() {
+					var $elem = $('#test6');
+					var text = $elem.html();
+					$elem.prev().html(text).end().next().html(text);
+				}
+				function func8() {
+					var $elem = $('#test6');
+					var text = $elem.html();
+					$elem.prevAll('p').first().html(text);
+				}
+				
+
+					
+			//zadanie 9-10
+				function func9() {
+					$('li:eq(1)').addClass('.www').wrapInner('<i>').after('<li>привет</li>');
+				}
+				function func10() {
+					$('li:eq(9)').parent().prev().wrap('<div class="www">');
+				}
+
+				function func11() {
+					$('p:not(.www)').each(function (index) {
+						$(this).append(index);
+					});
+				}
+				function func12() {
+					$('p').before(function() {
+						return $(this).clone().css('color', 'red');
+					}).css('color', 'green');
+				}
+
+				function func13() {
+					$('h2 + p').prev().before(function() {
+						return $(this).next();
+					});
+				}
+
+				function func14() {
+					$('p:empty').html(function() {
+						return $(this).prev().html();
+					});
+
+				}
+
+				function func17() {
+					$('input[type="text"]').val(function (index, value) {
+						return value * value;
+					});
+				}
+
+				function func18() {
+					var $elem = $('#test18');
+					var textPrev = $elem.prev().html();
+					var textNext = $elem.next().html();
+					$elem.prepend(textPrev);
+					$elem.append(textNext);
+				}
+
+
+			//Zadanie 21-32
+
+				function func21() {
+					$('p').css('color', 'red').filter('.www21').html('!');
+				}
+
+				function func22() {
+					$('p.www21').css('color', 'red').first().html('!').end().last().html('?');
+				}
+				function func23() {
+					$('p').append(function (index, text) {
+						return text;
+					})
+				}
+				function func24() {
+					$('p').append(function (index) {
+						return index;
+					});
+				}
+				function func25() {
+					$('p').append(function (index, text) {
+						return index * text;
+					});
+				}
+				//zadanie26
+					$('p').on('click', function() {
+						$(this).prev().remove().end().next().remove();
+					});
+
+				//zadanie27
+					$('p').on('click', function() {
+						$('p').prevUntil(':header').remove();
+					});
+
+				//zadanie28
+					$('p').on('click', function() {
+						$(this).nextAll('.www').first().remove();
+					});
+
+				//zadanie29
+					$('p').on('click', function() {
+						$(this).nextAll().eq(4).remove();
+					});
+
+				//zadanie30
+					$('p').on('click', function() {
+						$(this).nextAll().eq(4).not('h2').remove();
+					});
+
+				//zadanie31
+					$('p').on('click', function() {
+						$(this).nextAll().eq(4).not(':has(b)').remove();
+					});
+
+				//zadanie32
+					$('p').on('click', function() {
+						$(this).nextAll().eq(3).not('h2').next().remove();
+					});
+
+		
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+		
+		.fall1 {
+			width: 300px;
+			height: 45px;
+			background: blue;
+		}
+
+		.fall2 {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+		.fall3 {
+			width: 200px;
+			height: 25px;
+			background: green;
+		}
+
+		td {
+			border: 2px solid black;
+		}
+
+		ul {
+			padding: 30px;
+			border: 1px solid black;
+			width: 100px;
+		}
+
+		.anim {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+		}
+
+
+	</style>
+</body>
+</html>

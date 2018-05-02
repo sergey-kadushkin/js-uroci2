@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок №38. Работа с набором элементов jQuery</title>
+	<meta charset="utf-8">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Урок №38. Работа с набором элементов jQuery</h2>
+	</header><br>
+
+
+	<div class="zad">
+		<h3>Задание № 1-7</h3>
+		<li class="zad1">text text</li>
+		<li>text text</li>
+		<li>text text</li>
+		<li class="zad2">text text</li>
+		<li class="zad2">text text</li>
+		<li class="www">text text</li>
+		<li class="www">text text</li>
+		<li class="www">text text</li>
+		<li class="www">text text</li>
+		<li>text text</li>
+		<li>text text</li>
+		<li>text text</li>
+		<li class="www">text text</li>
+		<input type="button" value="click1" name="" id="zad5" onclick="func1()">
+		<input type="button" value="click2" name="" id="zad2" onclick="func2()">
+		<input type="button" value="click3" name="" id="zad3" onclick="func3()">
+		<input type="button" value="click4" name="" id="zad4" onclick="func4()">
+		<input type="button" value="click5" name="" id="zad5" onclick="func5()">
+		<input type="button" value="click6" name="" id="zad6" onclick="func6()">
+		<input type="button" value="click7" name="" id="zad7" onclick="func7()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 8-13</h3>
+		<p>text text text</p>
+		<p class="www8">text text text</p>
+		<p>text text text</p>
+		<p>text text text</p>
+		<p>text text text</p>
+		<p class="test8">text text text</p>
+		<p>text text text</p>
+		<p>text text text</p>
+		<p>text text text</p>
+		<p>text text text</p>
+		<p>text text text</p>
+		<input type="button" value="click8" name="" id="zad8" onclick="func8()">
+		<input type="button" value="click9" name="" id="zad8" onclick="func9()">
+		<input type="button" value="click10" name="" id="zad8" onclick="func10()">
+		<input type="button" value="click11" name="" id="zad8" onclick="func11()">
+		<input type="button" value="click12" name="" id="zad8" onclick="func12()">
+		<input type="button" value="click13" name="" id="zad8" onclick="func13()">
+	</div>
+	
+	<div class="zad">
+		<h3>Задание № 17</h3>
+		<input type="button" value="click" name="" class="zad17" onclick="func17()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 18</h3>
+		<input type="button" value="click" name="" id="zad11" onclick="func18()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 20-21</h3>
+		<h4 class="www">text text text</h4>
+		<h4 class="test">text text text</h4>
+		<h4 class="www">text text text</h4>
+		<h4 class="test">text text text</h4>
+		<p class="www">text text text</p>
+		<input type="button" value="click" name="" id="zad12" onclick="func20()">
+		<input type="button" value="click" name="" id="zad12" onclick="func21()">
+	</div>
+
+	<div class="zad">
+		<h3>Задание № 23</h3>
+		<input type="button" value="click" name="" id="zad12" onclick="func23()">
+	</div>
+
+	<script type="text/javascript">
+			//ZADANIE 1-7
+				function func1() {
+					$('li').not('.zad1').css('color', 'red');
+				}
+				function func2() {
+					$('li').first().css('color', 'blue');
+				}
+				function func3() {
+					$('li').last().css('color', 'blue');
+				}
+				function func4() {
+					$('li').eq(4).css('color', 'blue');
+				}
+				function func5() {
+					$('li').eq(-2).css('color', 'green');
+				}
+				function func6() {
+					$('li').slice(2, 10).css('color', 'grey');
+				}
+				function func7() {
+					$('li').filter('.www').css('color', 'yellow');
+				}
+
+		
+		//ZADANIE 8-13
+			function func8() {
+				$('.test8').next().css('color', 'red');
+			}
+			function func9() {
+				$('.test8').prev().css('color', 'red');
+			}
+			function func10() {
+				$('.test8').nextAll().css('color', 'green');
+			}
+			function func11() {
+				$('.test8').prevAll().css('color', 'green');
+			}
+			function func12() {
+				$('.www8').nextUntil('.test8').css('color', 'pink');
+			}
+			function func13() {
+				$('.test8').prevUntil('.www8').css('color', 'brown');
+			}
+
+			
+			
+		//ZADANIE 17
+			function func17() {
+				$('.zad17').parent().css('background', 'brown');
+			}
+
+		//ZADANIE 18
+			function func18() {
+				$('h3').parent().css('background', 'brown');
+			}
+
+
+			
+
+		//zadanie 20
+			function func20() {
+				$('h4.www').css('color', 'red').find('.test').css('fontSize', '30px')
+			}
+
+		//zadanie 21
+			function func21() {
+				$('.www').css('color', 'red').find('p').append('!');
+			}
+
+		//zadanie 23
+			function func23() {
+				alert($('h4').is('.test'))
+			}
+
+
+	</script>
+
+	<style type="text/css">
+		button {
+			height: 40px;
+			padding: 10px;
+			margin: 5px auto;
+			display: block;
+			border-radius: 5px;
+		}
+
+		header {
+			width: 100%;
+		}
+
+		header h2{
+			width: 30%;
+			margin: 5px auto;
+		}
+		
+		.fall1 {
+			width: 300px;
+			height: 45px;
+			background: blue;
+		}
+
+		.fall2 {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+		.fall3 {
+			width: 200px;
+			height: 25px;
+			background: green;
+		}
+
+
+	</style>
+</body>
+</html>
